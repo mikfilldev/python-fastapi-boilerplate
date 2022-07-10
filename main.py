@@ -1,3 +1,4 @@
+import os
 from typing import List
 from uuid import UUID
 from fastapi import FastAPI, HTTPException
@@ -8,19 +9,19 @@ app = FastAPI()
 
 db: List[User] = [
     User(
-        id=UUID("8d046817-2b5e-4bb0-9396-65346083be42"),
+        id=UUID(os.getenv("MYKOLA_UUID")),
         first_name="Mykola",
         last_name="Filippenko",
         gender=Gender.male,
         roles=[Role.admin]),
     User(
-        id=UUID("05198271-f16a-4f24-abfb-2b7d66f37819"),
+        id=UUID(os.getenv("VITALII_UUID")),
         first_name="Vitalii",
         last_name="Fedas",
         gender=Gender.male,
         roles=[Role.student]),
     User(
-        id=UUID("50a2ad53-9b52-4463-b26f-74488b2ab713"),
+        id=UUID(os.getenv("KATE_UUID")),
         first_name="Kate",
         last_name="Barishnikova",
         gender=Gender.female,
